@@ -1,4 +1,13 @@
-@import "reset";
+@import "_reset";
 @import "config/colors";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "modules/freemarket";
+@import "modules/top";
+@import "modules/show";
+@import "modules/purchases";
+@import "modules/exhibitions";
+@import "modules/items";
+@import "modules/users";
+@import "devise/registations_new";
+@import "devise/sessions_new";

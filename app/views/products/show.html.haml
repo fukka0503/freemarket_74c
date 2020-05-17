@@ -1,0 +1,163 @@
+.header
+  .header__inner
+    .header__inner--main
+      %h1.icon
+        =link_to image_tag("logo.png", width: '140', height: '40.55'),"/"
+    .nav
+      %ul.menu
+        %li.menu__single
+          = link_to class: "init-bottom" do
+            = image_tag("icon_category.png", width: '13', height: '13')
+            カテゴリー
+          %ul.menu__second-level
+            %li
+              = link_to '全品一覧',"/"
+            %li
+              = link_to 'tech camp',"/"
+        %li.lists-left-item
+          =link_to "ブランド", image_tag("icon_brand.png", width: '13', height: '13')
+      %ul.lists-right
+        %li.lists-right-login
+          = link_to 'ログイン',"/"
+        %li.lists-right-new
+          = link_to '新規会員登録',"/"
+
+.bread-crumbs
+  %ul
+    %li
+
+.main
+  .main-show
+    .content
+      .content-top
+        .item-box
+          %h2.item-box__name product3
+          .item-box__body
+            %ul
+              %li
+                = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '560', height: '346')
+                %ul.boxes
+                  %li.box
+                    = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '140', height: '87')
+                  %li.box
+                    = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: '140', height: '87')
+                  %li.box
+                    = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: '140', height: '87')
+          .item-box__price
+            %span.price ¥30000
+            .item-box__price-detail
+              %span (税込)
+              %span 送料込み
+          .item-detail
+            techcamp サイコー
+          .table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td 藤本
+                %tr
+                  %th カテゴリー
+                  %td
+                    = link_to "ベビー・キッズ", "/"
+                    %br
+                    = link_to "ベビー服", "/"
+                    %br
+                    = link_to "アウター"
+                %tr
+                  %th ブランド
+                  %td NIKE
+                %tr
+                  %th 商品サイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 未使用に近い
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み(出品者負担)
+                %tr
+                  %th 発送元の地域
+                  %td
+                    = link_to "沖縄県", "/"
+                %tr
+                  %th 発送日目安
+                  %td 4~7日で発送
+          .optional-area
+            %ul
+              %li.like-btn
+                %i
+                  =fa_icon 'star', class:'star'
+                お気に入り 0
+            %ul.optional
+              %li.potional-btn
+                =link_to "/" do
+                  %i
+                    =fa_icon 'flag', class:'flag'
+                  不適切な商品の通報
+        .comment-box
+          %ul.comment-contents
+      %ul.links
+        %li.left
+          = link_to root_path do
+            %i
+              =fa_icon 'angle-left', class: 'angle-left'  
+            %span
+            前の商品
+        %li.right
+          = link_to root_path do
+            %span 後ろの商品
+            %i
+              =fa_icon 'angle-right', class: 'angle-right'
+      .related-items
+        =link_to 'ベビー・キッズをもっと見る'
+        .product-lists
+
+.banner
+  .inner
+    %h2.inner-title
+      だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner-text
+      今すぐ無料ダウンロード
+    .inner-icon
+      .abtn
+        =link_to image_tag("http://furima.tokyo/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34.svg", width: '180', height: '53.55'),"/"
+      .gbtn
+        =link_to image_tag("http://furima.tokyo/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a.svg", width: '180', height: '53.55'),"/"
+.footer
+  %ul.contents
+    %li.content
+      %h2.content-head FURIMAについて
+      %ul
+        %li
+          = link_to '会社概要(運営会社)', "/"
+        %li
+          = link_to 'プライバシーポリシー', "/"
+        %li
+          = link_to 'FURIMA利用規約', "/"
+        %li
+          = link_to 'ポイントに関する特約', "/"
+    %li.content
+      %h2.content-head FURIMAを見る
+      %ul
+        %li
+          = link_to 'カテゴリー一覧', "/"
+        %li
+          = link_to 'ブランド一覧', "/"
+    %li.content
+      %h2.content-head ヘルプ&ガイド
+      %ul
+        %li
+          = link_to 'FURIMAガイド', "/"
+        %li
+          = link_to 'FURIMAロゴ利用ガイドライン', "/"
+        %li
+          = link_to 'お知らせ', "/"
+  .footer-logo
+    =link_to image_tag("logo-white.png", width: '160', height: '46.34')
+    %p ©︎ FURIMA
+.purchase
+  =link_to purchases_path do
+    .purchase-btn
+      %span.purchase-btn-text
+        購入手続きへ
