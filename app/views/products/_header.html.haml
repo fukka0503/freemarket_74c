@@ -1,0 +1,38 @@
+.header
+  .header__inner
+    .header__inner--main
+      %h1.icon
+        =link_to image_tag("logo.png", width: '140', height: '40.55'),"/"
+      .form
+        = form_with url: users_path do |f|
+          = f.text_field :home, class: 'form-text', placeholder: 'キーワードから探す'
+          .form-btn
+            .box
+              =link_to image_tag("icon-search 1.png", width: '19.55', height: '19.55'),"/"
+
+    .nav
+      %ul.menu
+        %li.menu__single
+          = link_to class: "init-bottom" do
+            = image_tag("icon_category.png", width: '13', height: '13')
+            カテゴリー
+          %ul.menu__second-level
+            %li
+              = link_to '全品一覧',"/"
+            %li
+              = link_to 'tech camp',"/"
+        %li.lists-left-item
+          =link_to "/" do
+            = image_tag("icon_brand.png", width: '13', height: '13')
+            ブランド
+      %ul.lists-right
+        - if user_signed_in?
+          %li.lists-right-login
+            = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn'
+          %li.lists-right-new
+            = link_to 'マイページ', items_path
+        - else
+          %li.lists-right-login
+            = link_to 'ログイン', new_user_session_path 
+          %li.lists-right-new
+            = link_to '新規会員登録',users_path

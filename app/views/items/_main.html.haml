@@ -1,0 +1,27 @@
+.center-main
+  .center-main-box
+    .item-icon
+      = link_to image_tag("member_photo_noimage_thumb.png", width: '60', height: '60'),"/"
+    .item-name
+      .item-name-user
+        user
+    .item-number
+      .item-number-title
+        評価 0 出品数 0
+  .mypage-tab-container-todo
+    = link_to "/" do
+      %li お知らせ
+  .mypage-notice
+    %ul.mypage-notice-list
+      = link_to "/" do
+        .mypage-body
+          .mypage-body-text
+            %li 初めてのFURIMAスマート払いで¥2,000以上の商品を買うとp1,000必ず貰える
+        
+      = link_to "/" do
+        %li 15秒!かんたん出品するだけ！p1,000もらえる
+      = link_to "/" do
+        %li FURIMAペイに登録するとおトクなクーポンプレゼント！
+      .mypage-under
+        = link_to "/" do
+          %li 一覧をみる

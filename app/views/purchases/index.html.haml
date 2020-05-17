@@ -1,0 +1,42 @@
+.top
+  .top-box
+    = link_to products_path do
+      =fa_icon 'remove', class:'remove'
+  .top__inner
+    .top__inner--text
+      購入手続き
+
+.second
+  .second__box
+    .second__box--img
+      = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '180', height: '180')
+    .second__box--explain
+      .explain-text
+        餃子の王将の餃子1人前
+      .explain-box
+        .explain-box-title
+          送料込み
+        .explain-box-money
+          ¥30,000
+  .second-remainder
+  .payment
+    .payment-money
+      .pay-title
+        支払い金額
+      .pay-number
+        ¥30,000
+  .second-remainder2
+  .second-delivery
+    =link_to "/" do
+      .delivery-containar
+        .delivery-title
+          配送先
+        .delivery-choice
+          設定してください
+          =fa_icon 'angle-right', class:'allow'
+  .remainder3
+  .second-buy
+    .second-buy-btn
+      =link_to "/" do
+        .buy-title
+          購入する

@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+.center {
+  height: 1600px;
+  background-color: #f8f8f8;
+  &-side {
+    width: 280px;
+    height: 1301px;
+    background-color: white;
+    margin: 100px 40px 0 200px;
+    float: left;
+    &-nav {
+      width: 280px;
+      height: 1301px;
+      
+      &-list {
+        width: 280px;
+        height: 48px;
+        a {
+          color: rgb(80, 78, 78);
+          text-decoration: none;
+          font-size: 14px;
+          li {
+            border: 1px solid #eee;
+            line-height: 48px;
+            padding-left: 15px;
+            
+            &:hover {
+              background-color: #ece9e9;
+            }
+          }
+        }
+      }
+      
+      p {
+      margin-top: 40px 0 0;
+      background-color: #f8f8f8;
+      line-height: 40px;
+      padding-top: 10px;
+      }
+    }
+  }
+
+
+  &-main {
+    background-color: white;
+    width: 700px;
+    float: right;
+    margin-top: 100px;
+    margin-right: 200px;
+    &-box {
+      width: 700px;
+      height: 200px;
+      background-image: url(8d1b42f32285dcb525e2111a2a534201.jpg);
+      position: relative;
+      .item-icon {
+        width: 60px;
+        height: 60px;
+        line-height: 200px;
+        margin: 0 auto;
+      }
+      .item-name {
+        width: 700px;
+        height: 16px;
+        &-user {
+          width: 60px;
+          height: 16px;
+          position: absolute;
+          bottom: 64px;
+          left: 330px;
+        }
+      }
+      .item-number {
+        width: 700px;
+        height: 16px;
+        &-title {
+          width: 200px;
+          height: 16px;
+          position: absolute;
+          bottom: 40px;
+          left: 291px;
+        }
+      }
+    }
+    .mypage-tab-container-todo {
+      background-color: white;
+      list-style: none;
+      width: 700px;
+      height: 74px;
+      line-height: 74px;
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+    .mypage-notice {
+      width: 700px;
+      height: 180px;
+      &-list {
+        width: 700px;
+        height: 81px;
+        li {
+          border: 1px solid #eee;
+          color: rgb(80, 78, 78);
+          padding-top: 10px;
+          &:hover {
+            background-color: #ece9e9;
+          }
+        }
+        a {
+          text-decoration: none;
+          text-align: center;
+        }
+        .mypage-body {
+          width: 700px;
+        }
+      }
+      .mypage-under {
+        background-color: rgb(165, 161, 161);
+        border-radius: 4%;
+        line-height: 60px;
+      }
+    }
+    
+
+    .credit {
+      width: 700px;
+      height: 562px;
+      background-color: white;
+      &-header {
+        width: 700px;
+        height: 50px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+      }
+      &-pay {
+        width: 700px;
+        height: 550px;
+        margin: 0 auto;
+        &-box {
+          width: 572px;
+          height: 500px;
+          margin: 0 auto;
+          padding-top: 35px;
+          .card-number {
+            width: 343px;
+            height: 92px;
+            text-align: center;
+            margin: 0 auto;
+            .input-default {
+              width: 343px;
+              height: 48px;
+              text-align: center;
+            }
+          }
+          .card-expiration-date {
+            width: 343px;
+            height: 145px;
+            text-align: center;
+            margin: 0 auto;
+          }
+          .card-code {
+            width: 343px;
+            height: 98px;
+            text-align: center;
+            margin: 0 auto;
+            .input-default {
+              width: 343px;
+              height: 48px;
+              text-align: center;
+            }
+          }
+          .card-btn {
+            width: 320px;
+            height: 50px;
+            background-color:#3CCACE;
+            border-radius: 4%;
+            list-style: none;
+            margin: auto;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 15px;
+            a {
+              color: #fff;
+              text-decoration: none;
+              font-size: 14px;
+            }
+          }
+        }
+        &-under {
+          width: 572px;
+          height: 16px;
+          padding-left: 432px;
+          a {
+            list-style: none;
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
+          }
+        }
+          
+      
+      }
+    }
+
+    .logout {
+      width: 700px;
+      height: 179px;
+      text-align: center;
+      line-height: 179px;
+      display: block;
+      padding-top: 59px;
+      &-btn {
+        width: 320px;
+        height: 50px;
+        background-color: #3CCACE;
+        border-radius: 4%;
+        list-style: none;
+        margin: auto;
+        line-height: 50px;
+        a {
+          width: 320px;
+          height: 50px;
+          text-decoration: none;
+          color: #fff;
+          text-align: center;
+
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  background-image: url(bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  .inner {
+    color: #fff;
+    text-align: center;
+    &-title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &-text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &-icon {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      .abtn {
+        margin-right: 10px;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      .gbtn {
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

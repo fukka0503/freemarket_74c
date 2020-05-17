@@ -1,4 +1,6 @@
 # freemarket_sample_74cのデータベース設計
+
+
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -31,6 +33,7 @@
 ### Association
 - has_many : parchases
 - belongs_to : user
+
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -52,6 +55,7 @@
 - belongs_to : status
 - has_many : parchases
 - has_many : exhibitions
+
 ## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -61,6 +65,7 @@
 |security_code|string|null: false|
 ### Association
 - belongs_to : user
+
 ## purchaseテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -69,6 +74,7 @@
 ### Association
 - belongs_to : product
 - belongs_to : delivery_address
+
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -76,12 +82,14 @@
 |product|references|null: false, foreign_key: true|
 ### Association
 - belongs_to : product
+
 ## statusesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |status|enum|null: false|
 ### Association
 - has_many : products
+
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -89,6 +97,7 @@
 |ancestry|string|
 ### Association
 - has_many : products
+
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
