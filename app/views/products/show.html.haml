@@ -1,27 +1,4 @@
-.header
-  .header__inner
-    .header__inner--main
-      %h1.icon
-        =link_to image_tag("logo.png", width: '140', height: '40.55'),"/"
-    .nav
-      %ul.menu
-        %li.menu__single
-          = link_to class: "init-bottom" do
-            = image_tag("icon_category.png", width: '13', height: '13')
-            カテゴリー
-          %ul.menu__second-level
-            %li
-              = link_to '全品一覧',"/"
-            %li
-              = link_to 'tech camp',"/"
-        %li.lists-left-item
-          =link_to "ブランド", image_tag("icon_brand.png", width: '13', height: '13')
-      %ul.lists-right
-        %li.lists-right-login
-          = link_to 'ログイン',"/"
-        %li.lists-right-new
-          = link_to '新規会員登録',"/"
-
+= render "products/header"
 .bread-crumbs
   %ul
     %li
@@ -31,31 +8,31 @@
     .content
       .content-top
         .item-box
-          %h2.item-box__name product3
+          %h2.item-box__name 
+            = @product.name
           .item-box__body
             %ul
               %li
-                = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '560', height: '346')
+                = image_tag(@product.images[0].picture, width: '560', height: '346')
                 %ul.boxes
-                  %li.box
-                    = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", width: '140', height: '87')
-                  %li.box
-                    = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png", width: '140', height: '87')
-                  %li.box
-                    = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png", width: '140', height: '87')
+                  - @product.images.each do |image|
+                    %li.box
+                      = image_tag image.picture, width: '140', height: '87'
           .item-box__price
-            %span.price ¥30000
+            %span.price 
+              = @product.price
+              円
             .item-box__price-detail
               %span (税込)
-              %span 送料込み
           .item-detail
-            techcamp サイコー
+            = @product.descripitons
           .table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td 藤本
+                  %td 
+                    = @product.user.nickname
                 %tr
                   %th カテゴリー
                   %td
@@ -66,23 +43,28 @@
                     = link_to "アウター"
                 %tr
                   %th ブランド
-                  %td NIKE
+                  %td
+                    = @product.brand.name
                 %tr
                   %th 商品サイズ
                   %td
+                    = @product.size
                 %tr
                   %th 商品の状態
-                  %td 未使用に近い
+                  %td
+                    = @product.quality
                 %tr
                   %th 配送料の負担
-                  %td 送料込み(出品者負担)
+                  %td 
+                    = @product.fee
                 %tr
                   %th 発送元の地域
                   %td
-                    = link_to "沖縄県", "/"
+                    = @product.area
                 %tr
                   %th 発送日目安
-                  %td 4~7日で発送
+                  %td
+                    = @product.delivery_time
           .optional-area
             %ul
               %li.like-btn
@@ -95,8 +77,6 @@
                   %i
                     =fa_icon 'flag', class:'flag'
                   不適切な商品の通報
-        .comment-box
-          %ul.comment-contents
       %ul.links
         %li.left
           = link_to root_path do
@@ -156,8 +136,16 @@
   .footer-logo
     =link_to image_tag("logo-white.png", width: '160', height: '46.34')
     %p ©︎ FURIMA
-.purchase
-  =link_to purchases_path do
-    .purchase-btn
-      %span.purchase-btn-text
-        購入手続きへ
+.edit-box
+  -if user_signed_in? && current_user.id == @product.user_id
+    .purchase
+      = link_to "/"  do
+        .purchase-btn
+          %span.purchase-btn-text
+            出品ページの編集
+  -else
+    .purchase
+      =link_to purchases_path do
+        .purchase-btn
+          %span.purchase-btn-text
+            購入手続きへ
