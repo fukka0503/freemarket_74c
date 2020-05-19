@@ -152,46 +152,36 @@
             }
           }
         }
-        .comment-box {
-          padding: 24px;
-          background-color: #fff;
-          margin: 10px 0;
-          text-align: center;
-          .comment-contents {
-            margin: 0;
-            padding: 0;
+        .form {
+          .form-area {
+            width: 100%;
+            min-height: 104px;
+            padding: 10px;
           }
-          .form {
-            .form-area {
-              width: 100%;
-              min-height: 104px;
-              padding: 10px;
-            }
-            .notice-msg {
-              padding: 8px;
-              font-size: 14px;
-              background-color: #f8f8f8;
-              margin: 10px 0;
-              text-align: left;
-            }
-            a {
-              text-decoration: none;
-              .form-btn {
-                margin-left: 20%;
-                line-height: 48px;
-                background: #3CCACE;
-                border: 1px solid #3CCACE;
-                width: 60%;
-                font-size: 18px;
-                border-radius: 100px;
-                color: #fff;
-                .comment {
-                  font-size: inherit;
-                  text-rendering: auto;
-                  -webkit-font-smoothing: antialiased;
-                  &::before {
-                    content: "\f075";
-                  }
+          .notice-msg {
+            padding: 8px;
+            font-size: 14px;
+            background-color: #f8f8f8;
+            margin: 10px 0;
+            text-align: left;
+          }
+          a {
+            text-decoration: none;
+            .form-btn {
+              margin-left: 20%;
+              line-height: 48px;
+              background: #3CCACE;
+              border: 1px solid #3CCACE;
+              width: 60%;
+              font-size: 18px;
+              border-radius: 100px;
+              color: #fff;
+              .comment {
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                &::before {
+                  content: "\f075";
                 }
               }
             }
@@ -255,7 +245,7 @@
 }
 
 .purchase-btn {
-  width: 180px;
+  width: 250px;
   background: #3CCACE;
   text-align: center;
   border-radius: 4%;
