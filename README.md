@@ -68,7 +68,7 @@
 |delivery_address_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to : user
-- belongs_to : addresse
+- belongs_to : delivery_address
 - belings_to : product
 
 
