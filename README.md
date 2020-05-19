@@ -54,7 +54,7 @@
 - has_many : images
 - belongs_to : category
 - belongs_to : brand
-- belongs_to : users
+- belongs_to : user
 - has_many : parchases
 - has_many : exhibitions
 - belongs_to : dealing
@@ -67,9 +67,9 @@
 |products_id|references|null: false, foreign_key: true|
 |delivery_address_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to : users
-- belongs_to : addresses
-- belings_to : products
+- belongs_to : user
+- belongs_to : addresse
+- belings_to : product
 
 
 ## credit_cardsテーブル
