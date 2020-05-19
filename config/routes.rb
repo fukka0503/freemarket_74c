@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :exhibitions,   only: [:new]
   resources :purchases,     only: [:index]
   resources :signup,        only: [:index]
-  resources :items,         only: [:index, :show, :new]
+  resources :mypage,        only: [:index, :new, :show]
   resources :users,         only: [:index]
 end
