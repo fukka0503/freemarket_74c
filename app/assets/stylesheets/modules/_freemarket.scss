@@ -43,7 +43,7 @@
         }
       }
     }
-    .nav {
+    .categories {
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
@@ -51,7 +51,7 @@
         position: relative;
         display: flex;
         width: 450px;
-        .menu-multi {
+        .menu__single {
           text-decoration: none;
           padding: 0;
           a {
@@ -63,6 +63,77 @@
             background-size: 18px;
             padding-right: 30px;
           }
+          .category__child, .category__parent, .category__grandchild{
+            // display: none;
+          }
+          
+          .category__icon,.brands__icon{
+            color: #3CCACE;
+          }
+          
+          // カテゴリーの大枠の要素の共通項
+          .category__list{
+            position: absolute;
+            height: 560px;
+            background-color: white;
+            border-right: 1px solid whitesmoke;
+          }
+          
+          // 子要素はカテゴリー名の共通項
+          .category__child--name{
+            width: 100%;
+            color: black;
+            display: inline-block;
+            padding: 3px 15px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            &:hover{
+              color: black 
+              background-color lightgray;
+            }
+          }
+          
+          .categories{
+            padding-bottom: 10px;
+            &:hover{
+              .category__parent{
+                top: 122px;
+                display: block;
+                &--name{
+                  width: 100%;
+                  color: black;
+                  display: inline-block;
+                  padding: 10px 20px;
+                  font-size: 13px;
+                  letter-spacing: 2px;
+                  &:hover {
+                    color:white
+                    background-color skyblue;
+                  }
+                }
+                li {
+                  &:hover{
+                    .category__child{
+                      width: 100%;
+                      display: block;
+                      top: 0;
+                      left: 221px;
+                      li {
+                        &:hover{
+                          .category__grandchild{
+                            width: 300px;
+                            display: block;
+                            top: 0;
+                            left: 220px;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }  
         }
       }
       .lists-left-item {
@@ -79,7 +150,7 @@
         }
         a:hover {
           color: #ffb340;
-        }
+        }        
       }
     }
     .lists-right {
@@ -112,71 +183,15 @@
     }
   }
 }
-.category__child, .category__parent, .category__grandchild{
-  display: none;
-}
 
-.category__icon,.brands__icon{
-  color: #3CCACE;
-}
-
-// カテゴリーの大枠の要素の共通項
-.category__list{
-  position: absolute;
-  height: 560px;
-  background-color: white;
-  border-right: 1px solid $whitesmoke;
-}
-
-// 子要素はカテゴリー名の共通項
-.category__child--name{
-  width: 100%;
-  color: black;
-  display: inline-block;
-  padding: 3px 15px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  @include hover__color(black, $lightgray, 1);
-}
-
-.categories{
-  padding-bottom: 10px;
-  &:hover{
-    .category__parent{
-      top: 122px;
-      display: block;
-      &--name{
-        width: 100%;
-        color: black;
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 13px;
-        letter-spacing: 2px;
-        @include hover__color(white, $skyblue, 1);
-      }
-      li {
-        &:hover{
-          .category__child{
-            width: 100%;
+.menu__single:hover .category__parent.category__list {
             display: block;
-            top: 0;
-            left: 221px;
-            li {
-              &:hover{
-                .category__grandchild{
-                  width: 300px;
-                  display: block;
-                  top: 0;
-                  left: 220px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+            height: 100px;
+            width: 100px;
+            background-color: red;
 }
+
+
 // .nav {
 //   .menu {
 //     position: relative;

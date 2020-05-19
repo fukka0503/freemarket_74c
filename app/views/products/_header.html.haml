@@ -10,19 +10,19 @@
             .box
               =link_to image_tag("icon-search 1.png", width: '19.55', height: '19.55'),"/"
 
-    .nav
+    .categories
       %ul.menu
         %li.menu__single
-          = link_to class: "init-bottom" do
+          = link_to "/" do
             = image_tag("icon_category.png", width: '13', height: '13')
             カテゴリー
           %ul.category__parent.category__list
-            - @parents.each do |parent|
+            - @parents.each do |category|
               %li
                 = link_to "#", class: "category__parent--name" do
-                  = parent.name
+                  = category.name
                 %ul.category__child.category__list
-                  - parent.children.each do |child|
+                  - category.children.each do |child|
                     %li
                       = link_to "#", class: "category__child--name" do
                         = child.name
