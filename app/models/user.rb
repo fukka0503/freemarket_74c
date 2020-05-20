@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :exhibitions
   has_many :delivery_addresses
   has_many :credit_cards
+  has_many :products, dependent: :destroy
 
 
   validates :nickname, presence: true, length: { maximum: 6 }

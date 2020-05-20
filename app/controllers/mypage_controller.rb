@@ -1,5 +1,5 @@
-class ItemsController < ApplicationController
-  
+class MypageController < ApplicationController
+
   def index
   end
 
@@ -8,4 +8,5 @@ class ItemsController < ApplicationController
 
   def show
   end
+
 end

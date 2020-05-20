@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products
   resources :purchases, only: [:index]
   resources :signup, only: [:index]
-  resources :items,         only: [:index, :show, :new]
+  resources :purchases,     only: [:index]
+  resources :mypage,        only: [:index, :new, :show]
   resources :users,         only: [:index]
 end
