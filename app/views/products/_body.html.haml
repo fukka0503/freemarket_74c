@@ -1,0 +1,126 @@
+= form_for @product do |f| 
+  .body
+    .products
+      %ul.products__images
+        %li.text
+          .title
+            出品画像
+          .icon
+            必須
+        %li.products__images--text 
+          最大10枚までアップロードできます
+        %li.image
+          #image-box
+            #previews
+              - if @product.persisted?
+                - @product.images.each_with_index do |image, i|
+                  = image_tag image.images.url, data: { index: i }, width: "800", height: '800'
+              = f.fields_for :images do |image|
+                .js-file_box{"data-index" => "#{image.index}"}
+                = image.file_field :picture, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+              - if @product.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @product.persisted?
+              .js-file_box{"data-index" => "#{@product.images.count}"}
+                = file_field_tag :picture, name: "product[images_attributes][#{@product.images.count}][images]", class: 'js-file'
+                .js-remove 削除
+      %ul.title
+        %li.products__name
+          %ul.text 
+            商品名
+            %li.icon
+              必須
+          .name   
+            40文字まで         
+        %li.products__descriptions
+          %ul.text 
+            %li.title
+              商品の説明
+            %li.icon
+              必須
+
+          .text-box
+            商品の説明（必須 1000文字以内）
+            （色、素材、重さ、定価、注意点など）
+      %ul.products__detail
+        商品の詳細
+        %li.categories
+          %ul.text 
+            %li.title
+              カテゴリー
+            %li.icon
+              必須
+          .choice
+            選択して下さい
+        %li.brands
+          %ul.text 
+            %li.title
+              ブランド
+            %li.icon-any
+              任意
+          .choice
+            例）シャネル
+        %li.statuses
+          %ul.text 
+            %li.title
+              商品の状態
+            %li.icon
+              必須
+          .choice
+            選択して下さい
+      %ul.products__delivery
+        配送について
+        %li.fee
+          %ul.text 
+            %li.title
+              配送料の負担
+            %li.icon
+              必須
+          .choice
+            選択して下さい
+        %li.area
+          %ul.text 
+            %li.title
+              発送元の地域
+            %li.icon
+              必須
+          .choice
+            選択して下さい
+        %li.delivery-time
+          %ul.text 
+            %li.title
+              発送までの日数
+            %li.icon
+              必須
+          .choice
+            選択して下さい
+      %ul.products__price
+        価格
+        %li.price
+          %ul.text 
+            %li.title
+              販売価格 
+            %li.icon
+              必須
+          .value
+            ￥
+          .box
+        %li.tax 
+          販売手数料（10％）
+          .line
+            ー
+        %li.profit
+          販売利益
+          .line
+            ー
+      %ul.btn
+        %li.exhibit-btn
+          出品する
+        %li.save-btn
+          下書きに保存
+        .back-btn
+          戻る
+      .products__attention
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
