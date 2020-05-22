@@ -82,11 +82,11 @@
 ### Association
 - belongs_to : user
 
-## purchaseテーブル
+## purchasesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |product|references|null: false, foreign_key: true|
-|delivery_address_id|references|null: false, foreign_key: true|
+|delivery_address|references|null: false, foreign_key: true|
 ### Association
 - belongs_to : product
 - belongs_to : delivery_address

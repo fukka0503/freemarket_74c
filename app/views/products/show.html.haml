@@ -145,7 +145,7 @@
             出品ページの編集
   -else
     .purchase
-      =link_to purchases_path do
+      =link_to "/products/#{@product.id}/purchases/index" do
         .purchase-btn
           %span.purchase-btn-text
             購入手続きへ
