@@ -36,11 +36,16 @@
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to "ベビー・キッズ", "/"
-                    %br
-                    = link_to "ベビー服", "/"
-                    %br
-                    = link_to "アウター"
+                    -if Category.find(@product.category_id).ancestors?
+                      - if Category.find(@product.category_id).children?
+                        = @product.category.parent.name
+                        = @product.category.name
+                      - else
+                        = @product.category.parent.parent.name
+                        = @product.category.parent.name
+                        = @product.category.name 
+                    - else
+                      = @product.category.name
                 %tr
                   %th ブランド
                   %td

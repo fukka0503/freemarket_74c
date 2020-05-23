@@ -6,7 +6,7 @@
       %h3=link_to '新規投稿商品'
     .product-lists
       - @products.each do |product|
-        -if product.status == "出品中"
+        -if product.status == 0
           .product-list
             = link_to product_path(product.id) do
               - product.images.each do |image|

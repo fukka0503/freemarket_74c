@@ -9,20 +9,17 @@ function appendChildrenBox(insertHTML) {
     `<select class="item_input__body__category__children--select" id="children_category">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}</select>`
-    //  <i class = "fa fa-chevron-down"></i>`;
   $('#children_box').append(childSelectHtml);
 }
 function appendGrandchildrenBox(insertHTML) {
   let grandchildSelectHtml = '';
   grandchildSelectHtml = 
-    `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="item[category_id]">
+    `<select class="item_input__body__category__grandchildren--select" id="grandchildren_category" name="product[category_id]">
        <option value="" data-category="" >選択してください</option>
        ${insertHTML}</select>`
-    //  <i class = "fa fa-chevron-down"></i>`;
   $('#grandchildren_box').append(grandchildSelectHtml);
 }
 $(document).on("change","#parent_category", function() {
-  //選択された親カテゴリーの名前取得 → コントローラーに送る
   let parentCategory =  $("#parent_category").val();
   if (parentCategory != "") {
     $.ajax( {
@@ -32,11 +29,10 @@ $(document).on("change","#parent_category", function() {
       dataType: 'json'
     })
     .done(function(children) {
-      //親カテゴリーが変更されたら、子/孫カテゴリー、サイズを削除し、初期値にする
       $("#children_box").empty();
       $("#grandchildren_box").empty();
-      // $('.size_box').val('');
-      // $('#size_box').css('display', 'none');
+      $('.size_box').val('');
+      $('#size_box').css('display', 'none');
       let insertHTML = '';
       children.forEach(function(child) {
         insertHTML += appendOption(child);
@@ -49,14 +45,12 @@ $(document).on("change","#parent_category", function() {
   }else{
     $("#children_box").empty();
     $("#grandchildren_box").empty();
-    // $('.size_box').val('');
-    // $('#size_box').css('display', 'none');
+    $('.size_box').val('');
+    $('#size_box').css('display', 'none');
   }
 });
 $(document).on('change', '#children_box', function() {
-  //選択された子カテゴリーidを取得
   let childId = $('#children_category option:selected').data('category');
-  //子カテゴリーが初期値でない場合
   if (childId != ""){
     $.ajax({
       url: 'get_category_grandchildren',
