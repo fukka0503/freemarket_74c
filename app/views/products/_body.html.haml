@@ -8,25 +8,26 @@
           .icon
             必須
         %li.products__images--text 
-          最大10枚までアップロードできます
-        %li.image
-          #image-box
-            #previews
+          最大5枚までアップロードできます
+        .preview-box
+          #previews
+          %label.image 
+            = image_tag("icon_camera.png")
+            #image-box
               - if @product.persisted?
                 - @product.images.each_with_index do |image, i|
-                  = image_tag image.images.url, data: { index: i }, width: "800", height: '800'
+                  = image_tag image.picture.url, data: { index: i }, width: "122", height: '146'
               = f.fields_for :images do |image|
-                .js-file_box{"data-index" => "#{image.index}"}
-                = image.file_field :picture, class: 'js-file'
-                %br/
-                %span.js-remove 削除
-              - if @product.persisted?
-                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-            - if @product.persisted?
-              .js-file_box{"data-index" => "#{@product.images.count}"}
-                = file_field_tag :picture, name: "product[images_attributes][#{@product.images.count}][images]", class: 'js-file'
-                .js-remove 削除
-      %ul.title
+                .js-file_box{"data-index":"#{image.index}"} 
+                  = image.file_field :picture, class: 'js-file' 
+                  %br/
+                  - if @product.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                    - if @product.persisted?
+                      .js-file_box{"data-index": "#{@product.images.count}"}
+                        = file_field_tag :picture, name: "product[images_attributes][#{@product.images.count}][images]", class: 'js-file'
+                      .js-remove 削除
+        %ul.title
         %li.products__name
           %ul.text 
             商品名
