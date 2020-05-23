@@ -2,6 +2,6 @@ class Product < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
-  belongs_to :brand
+  belongs_to :brand, dependent: :destroy
   has_many :images, dependent: :destroy
 end
