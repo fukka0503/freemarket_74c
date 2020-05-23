@@ -8,27 +8,6 @@ class ProductsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
-  def new
-    @product = Product.new
-    @product.images.build
-  end
-
-  def create
-    @product = Product.new(product_params)
-    if @product.save
-       redirect_to root_path
-    else
-      render :new
-    end
-  end
-  
-  private
-  
-  def product_params
-    params.require(:product).permit(:name, :price, images_attributes: [:picture])
-  end
-  
-
   def show
     @product = Product.find(params[:id])
     @parents = Category.where(ancestry: nil)
@@ -38,12 +17,16 @@ class ProductsController < ApplicationController
     @product = Product.new
     @parents = Category.where(ancestry: nil)
     @brands = Brand.new
+    @product.images.build
   end
 
   def create
+    # @images = Image.find(@product.src)
+    # @images.save
     @brands = Brand.new(brand_params)
     @brands.save
     @product = Product.new(product_create_params)
+    binding.pry
     if @product.save
       redirect_to root_path
     else
@@ -87,7 +70,7 @@ class ProductsController < ApplicationController
 
   private
   def product_create_params
-    params.require(:product).permit(:name,:descripitons,:size,:category_id,:quality,:area,:fee,:delivery_time,:price).merge(user_id:current_user.id,brand_id:@brands.id,status:0)
+    params.require(:product).permit(:name,:descripitons,:size,:category_id,:quality,:area,:fee,:delivery_time,:price,images_attributes: [:picture]).merge(user_id:current_user.id,brand_id:@brands.id,status:0)
   end
 
   def brand_params
