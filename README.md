@@ -16,7 +16,7 @@
 - has_many : parchases
 - has_many : exhibitions
 - has_many : delivery_addresses
-- has_many : credit_cards
+- has_many : cards
 - has_many : products
 - has_many : dealings
 
@@ -72,7 +72,7 @@
 - belings_to : product
 
 
-## credit_cardsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
