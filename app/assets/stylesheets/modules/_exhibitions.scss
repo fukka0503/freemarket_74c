@@ -22,11 +22,11 @@
 
 .body {
   width: 100%;
-  height: 2320px;
+  // height: 2320px;
   display: flex;
   .products {
     width: 700px;
-    height: 2320px;
+    // height: 2320px;
     background-color: white;
     margin: 0 auto;
     &__images {
@@ -72,7 +72,7 @@
       }
     }
     ul.title {
-      height: 410px;
+      // height: 410px;
       padding: 40px;
       border-bottom: 1px solid rgb(235, 235, 235);
       li.products__name {
@@ -94,14 +94,13 @@
           }
         }
         .name {
-          height: 48px;
-          width: 620px;
-          border: 1px solid rgb(205, 205, 205);
-          border-radius: 4px;
-          padding: 0 16px;
-          margin: 10px 0 22px;
-          line-height: 48px;
-          color: grey;
+          .put-up {
+            height: 48px;
+            width: 620px;
+            padding: 0 16px;
+            margin: 10px 0 22px;
+            line-height: 48px;
+          }
         }
       }
       li.products__descriptions {
@@ -123,22 +122,21 @@
           }
         }
         .text-box {
-          height: 158px;
-          width: 620px;
-          border: 1px solid rgb(205, 205, 205);
-          border-radius: 4px;
-          padding: 13px 16px;
-          color: grey;
+          .explanation {
+            height: 158px;
+            width: 620px;
+            padding: 13px 16px;
+          }
         }
       }
     }
     &__detail {
-      height: 480px;
+      // height: 480px;
       padding: 40px;
       font-weight: 600;
       color: grey;
       font-size: 14px;
-      border-bottom: 1px solid rgb(235, 235, 235);
+      // border-bottom: 1px solid rgb(235, 235, 235);
       li {
         color: black;
         margin: 24px 0 16px;
@@ -167,21 +165,59 @@
             width: 32px;
           }
         }
-        .choice {
-          height: 48px;
-          width: 620px;
-          border: 1px solid rgb(205, 205, 205);
-          border-radius: 4px;
-          align-content: center;
-          line-height: 48px;
-          padding: 0 56px 0 16px;
-          font-weight: normal;
-          cursor: pointer;
+        .pulldown#partent_box{
+          .parent_category_box {
+            width: 400px;
+            height: 40px;
+            margin-bottom: 15px;
+          }
+        }
+        .item_input__body__category__children--select {
+          width: 400px;
+          height: 40px;
+          margin-bottom: 15px;
+        }
+        .item_input__body__category__grandchildren--select {
+          width: 400px;
+          height: 40px;
+        }
+        #size_box {
+          display: none;
+          ul.text {
+            display: flex;
+            li.title {
+              padding-right: 4px;
+            }
+            li.icon {
+              height: 16px;
+              width: 32px;
+              background-color: #3CCACE;
+              color: white;
+              line-height: 16px;
+              padding-left: 4px;
+              border-radius: 3px;
+              font-size: 12px;
+            }
+          }  
+          .pulldown#size_selectbox {
+            .size_box {
+              width: 400px;
+              height: 40px;
+            }
+          }
+        }  
+      }
+      .statuses {
+        .quality-item {
+          .quality_box {
+            width: 400px;
+            height: 40px;
+          }
         }
       }
     }
     &__delivery {
-      height: 500px;
+      // height: 500px;
       padding: 40px;
       font-weight: 600;
       color: grey;
@@ -206,21 +242,28 @@
             font-size: 12px;
           }
         }
-        .choice {
-          height: 48px;
-          width: 620px;
-          border: 1px solid rgb(205, 205, 205);
-          border-radius: 4px;
-          align-content: center;
-          line-height: 48px;
-          padding: 0 56px 0 16px;
-          font-weight: normal;
-          cursor: pointer;
+        .choice-box {
+          .fee_box {
+            width: 400px;
+            height: 40px;
+          }
+        }
+        .area-item {
+          .area_box {
+            width: 400px;
+            height: 40px;
+          }
+        }
+        .time-item {
+          .time_box {
+            width: 400px;
+            height: 40px;
+          }
         }
       }
     }
     &__price {
-      height: 270px;
+      // height: 270px;
       padding: 40px;
       font-weight: 600;
       color: grey;
@@ -245,17 +288,18 @@
             padding-left: 4px;
             border-radius: 3px;
             font-size: 12px;
+            margin-top: 15px;
           }
         }
         .value {
           margin-left: 210px;
         }
         .box {
-          height: 48px;
-          width: 285px;
-          border: 1px solid rgb(205, 205, 205);
-          border-radius: 4px;
           margin-left: 16px;
+          .price-box {
+            height: 48px;
+            width: 285px;
+          }
         }
       }
       li.tax {
@@ -278,21 +322,21 @@
       }
     }
     ul.btn {
-      height: 270px;
+      // height: 240px;
       padding: 40px;
       font-weight: 600;
       font-size: 17px;
       margin: 0 150px;
       li.exhibit-btn {
-        height: 48px;
-        width: 320px;
-        background-color: #3CCACE;
-        line-height: 48px;
-        padding-left: 130px;
-        border-radius: 4px;
-        margin-bottom: 32px;
-        color: white;
-        cursor: pointer;
+        .register_btn {
+          height: 48px;
+          width: 320px;
+          background-color: #3CCACE;
+          line-height: 48px;
+          border-radius: 4px;
+          margin-bottom: 32px;
+          color: white;
+        }
       }
       li.save-btn {
         height: 48px;
@@ -306,11 +350,13 @@
         cursor: pointer;
       }
       .back-btn {
-        margin-left: 145px;
-        cursor: pointer;
-        font-size: 15px;
-        color: lightskyblue;
-        font-weight: normal;
+        a {
+          margin-left: 145px;
+          font-size: 15px;
+          color: lightskyblue;
+          font-weight: normal;
+          text-decoration: none;
+        }
       }
     }
     &__attention {
@@ -339,3 +385,15 @@
     cursor: pointer;
   }
 }
+
+.choice {
+  &-name {
+    height: 48px;
+    width: 620px;
+    padding: 0 16px;
+    margin: 10px 0 22px;
+    line-height: 48px;
+  }
+}
+
+
