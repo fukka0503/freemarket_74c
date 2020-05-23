@@ -4,6 +4,7 @@ class CardController < ApplicationController
   def new
     card = Card.where(user_id: current_user.id)
     redirect_to action: "show" if card.exists?
+    @parents = Category.where(ancestry: nil)
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -39,6 +40,7 @@ class CardController < ApplicationController
   end
 
   def show #Cardのデータpayjpに送り情報を取り出します
+    @parents = Category.where(ancestry: nil)
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 
