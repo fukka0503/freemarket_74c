@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :signup,        only: [:index]
   resources :mypage,        only: [:index, :new, :show]
   resources :users,         only: [:index]
-  resources :card,          only: [:new, :show] do
+  resources :card,          only: [:new, :show, :destroy] do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
