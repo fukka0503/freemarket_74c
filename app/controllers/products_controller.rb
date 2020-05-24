@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @brands = Brand.find(@product.brand_id)
     @categories = Category.where(params[:root_id])
     grandchild_category = @product.category
     child_category = grandchild_category.parent
@@ -41,6 +42,13 @@ class ProductsController < ApplicationController
     grandchild_category = @product.category
     @category_grandchildren = Category.where(ancestry: grandchild_category.ancestry)
   end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path
+  end
+
 
 
   def get_category_children

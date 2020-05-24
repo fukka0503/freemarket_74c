@@ -26,86 +26,95 @@
           %li.icon
             必須
 
-        .text-box
-          商品の説明（必須 1000文字以内）
-          （色、素材、重さ、定価、注意点など）
-    %ul.products__detail
-      商品の詳細
-      %li.categories
-        %ul.text 
-          %li.title
-            カテゴリー
-          %li.icon
-            必須
-        .choice
-          選択して下さい
-      %li.brands
-        %ul.text 
-          %li.title
-            ブランド
-          %li.icon-any
-            任意
-        .choice
-          例）シャネル
-      %li.statuses
-        %ul.text 
-          %li.title
-            商品の状態
-          %li.icon
-            必須
-        .choice
-          選択して下さい
-    %ul.products__delivery
-      配送について
-      %li.fee
-        %ul.text 
-          %li.title
-            配送料の負担
-          %li.icon
-            必須
-        .choice
-          選択して下さい
-      %li.area
-        %ul.text 
-          %li.title
-            発送元の地域
-          %li.icon
-            必須
-        .choice
-          選択して下さい
-      %li.delivery-time
-        %ul.text 
-          %li.title
-            発送までの日数
-          %li.icon
-            必須
-        .choice
-          選択して下さい
-    %ul.products__price
-      価格
-      %li.price
-        %ul.text 
-          %li.title
-            販売価格 
-          %li.icon
-            必須
-        .value
-          ￥
-        .box
-      %li.tax 
-        販売手数料（10％）
-        .line
-          ー
-      %li.profit
-        販売利益
-        .line
-          ー
-    %ul.btn
-      %li.exhibit-btn
-        出品する
-      %li.save-btn
-        下書きに保存
-      .back-btn
-        戻る
-    .products__attention
-      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+          .text-box
+            = f.text_area :descripitons, class: "explanation", placeholder: '商品の説明（必須 1000文字以内） （色、素材、重さ、定価、注意点など）'  
+      %ul.products__detail
+        商品の詳細
+        %li.item_input__body__category#category_box
+          %ul.text 
+            %li.title
+              カテゴリー
+            %li.icon
+              必須
+          .pulldown#partent_box
+            = f.collection_select :Category_id, Category.roots, :id, :name, {include_blank: "選択してください"}, {class: "parent_category_box", id: "parent_category"}
+          .pulldown.item_input__body__category__children#children_box
+          .pulldown.item_input__body__category__grandchildren#grandchildren_box
+          #size_box
+            %ul.text 
+              %li.title
+                商品のサイズ
+              %li.icon
+                必須
+            .pulldown#size_selectbox
+              =f.collection_select :size, Size.all, :name, :name, {include_blank: "選択してください"}, {class: "size_box"}
+          %ul.text 
+            %li.title
+              ブランド
+            %li.icon-any
+              任意
+          .choice
+            = fields_for(@brands, local: true) do |i|
+              = i.text_field :name, class: "choice-name", placeholder: '例) シャネル'
+        %li.statuses
+          %ul.text 
+            %li.title
+              商品の状態
+            %li.icon
+              必須
+          .quality-item
+            = f.collection_select :quality, Quality.all, :name, :name, {include_blank: "選択してください"}, {class: "quality_box"}
+      %ul.products__delivery
+        配送について
+        %li.fee
+          %ul.text 
+            %li.title
+              配送料の負担
+            %li.icon
+              必須
+          .choice-box
+            = f.collection_select :fee, Fee.all, :name, :name, {include_blank: "選択してください"}, {class: "fee_box"}
+        %li.area
+          %ul.text 
+            %li.title
+              発送元の地域
+            %li.icon
+              必須
+          .area-item
+            = f.collection_select :area, Area.all, :name, :name, {include_blank: "選択してください"}, {class: "area_box"}
+        %li.delivery-time
+          %ul.text 
+            %li.title
+              発送までの日数
+            %li.icon
+              必須
+          .time-item
+            = f.collection_select :delivery_time, Delivery_time.all, :name, :name, {include_blank: "選択してください"}, {class: "time_box"}
+      %ul.products__price
+        価格
+        %li.price
+          %ul.text 
+            %li.title
+              販売価格 
+            %li.icon
+              必須
+          .value
+            ￥
+          .box
+            = f.text_field :price, class: "price-box"
+        %li.tax 
+          販売手数料（10％）
+          .line
+            ー
+        %li.profit
+          販売利益
+          .line
+            ー
+      %ul.btn
+        %li.exhibit-btn
+          = f.submit "登録", class: "register_btn"
+        .back-btn
+          = link_to root_path do
+            戻る
+      .products__attention
+        禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

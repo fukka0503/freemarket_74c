@@ -117,8 +117,8 @@
       %ul.btn
         %li.exhibit-btn
           = f.submit "登録", class: "register_btn"
-        %li.save-btn
-          下書きに保存
+        %li.destory-btn
+          = link_to "出品商品を削除", product_path(@product.id, @brands.id), method: :delete, class: "delete_btn"
         .back-btn
           = link_to root_path do
             戻る

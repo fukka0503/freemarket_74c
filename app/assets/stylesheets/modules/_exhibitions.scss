@@ -338,16 +338,22 @@
           color: white;
         }
       }
-      li.save-btn {
+      li.destory-btn {
         height: 48px;
         width: 320px;
-        background-color: gray;
-        line-height: 48px;
-        padding-left: 110px;
-        border-radius: 4px;
-        margin-bottom: 32px;
-        color: white;
-        cursor: pointer;
+        .delete_btn {
+          height: 48px;
+          width: 320px;
+          background-color: gray;
+          line-height: 48px;
+          padding-left: 100px;
+          padding-right: 100px;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          border-radius: 4px;
+          color: white;
+          text-decoration: none;
+        }
       }
       .back-btn {
         a {
