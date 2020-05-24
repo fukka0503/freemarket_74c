@@ -1,3 +1,4 @@
+= render "products/head"
 = form_with(model: @product, local: true) do |f|
   .body
     .products
@@ -35,7 +36,6 @@
               商品の説明
             %li.icon
               必須
-
           .text-box
             = f.text_area :descriptions, class: "explanation", placeholder: '商品の説明（必須 1000文字以内） （色、素材、重さ、定価、注意点など）'  
       %ul.products__detail
