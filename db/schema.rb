@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_204129) do
     t.bigint "brand_id", null: false
     t.bigint "user_id", null: false
     t.string "name", null: false
-    t.string "descripitons", null: false
+    t.string "descriptions", null: false
     t.integer "price", null: false
     t.integer "status", null: false
     t.string "fee"

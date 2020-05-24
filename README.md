@@ -41,7 +41,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|descripitons|text|null: false|
+|descriptions|text|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |status|string|null: false|
