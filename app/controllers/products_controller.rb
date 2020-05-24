@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-
+  before_action :move_to_index, except: [:index, :show]
   
   def index
     @product = Product.new
@@ -21,11 +21,9 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @brands = Brand.new(brand_params)
-    @brands.save
     @product = Product.new(product_create_params)
-    # binding.pry
-    if @product.save
+    @product.brand_id = related_brand_id
+    if @product.save!
       redirect_to root_path
     else
       redirect_to new_product_path
@@ -45,13 +43,20 @@ class ProductsController < ApplicationController
     @category_grandchildren = Category.where(ancestry: grandchild_category.ancestry)
   end
 
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_create_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to root_path
   end
-
-
 
   def get_category_children
     @category_children = Category.find(params[:parent_name]).children
@@ -68,11 +73,24 @@ class ProductsController < ApplicationController
 
   private
   def product_create_params
-    params.require(:product).permit(:name,:descriptions,:size,:category_id,:quality,:area,:fee,:delivery_time,:price,images_attributes: [:picture]).merge(user_id:current_user.id,brand_id:@brands.id,status:0)
+    params.require(:product).permit(:name,:descriptions,:size,:category_id,:quality,:area,:fee,:delivery_time,:price,images_attributes: [:picture]).merge(user_id:current_user.id,status:0)
   end
 
   def brand_params
     params.require(:brand).permit(:name)
   end
 
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def related_brand_id
+    brand = Brand.find_by(name: params[:brand][:name])
+    if brand.present?
+      return brand.id
+    else
+      brand = Brand.create(brand_params)
+      return brand.id
+    end
+  end
 end

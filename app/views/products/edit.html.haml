@@ -1,5 +1,4 @@
 = render "products/head"
-
 = form_with(model: @product, local: true) do |f|
   .body
     .products
@@ -13,22 +12,23 @@
           最大5枚までアップロードできます
         .preview-box
           #previews
-          %label.image 
+            - if @product.persisted?
+              - @product.images.each_with_index do |image, i|
+                .preview{data: { index: i }}
+                  = image_tag image.picture.url, data: { index: i }, width: "122", height: '146',class: "picture"
+                  .js-remove
+                    削除
+          %label.image{for: "product_images_attributes_#{@product.images.count}_picture"} 
             = image_tag("icon_camera.png")
             #image-box
-              - if @product.persisted?
-                - @product.images.each_with_index do |image, i|
-                  = image_tag image.picture.url, data: { index: i }, width: "122", height: '146'
               = f.fields_for :images do |image|
                 .js-file_box{"data-index":"#{image.index}"} 
                   = image.file_field :picture, class: 'js-file' 
-                  %br/
                   - if @product.persisted?
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-                    - if @product.persisted?
-                      .js-file_box{"data-index": "#{@product.images.count}"}
-                        = file_field_tag :picture, name: "product[images_attributes][#{@product.images.count}][images]", class: 'js-file'
-                      .js-remove 削除
+              - if @product.persisted?
+                .js-file_box{"data-index": "#{@product.images.count}"}
+                  = file_field_tag :picture, name: "product[images_attributes][#{@product.images.count}][picture]", class: 'js-file', id: "product_images_attributes_#{@product.images.count}_picture"
       %ul.title
         %li.products__name
           %ul.text 
