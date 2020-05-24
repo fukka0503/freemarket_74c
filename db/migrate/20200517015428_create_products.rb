@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.references :brand, foreign_key: true,            null: false
       t.references :user, foreign_key: true,             null: false
       t.string :name,                                    null: false
-      t.string :descripitons,                            null: false
+      t.string :descriptions,                            null: false
       t.integer :price,                                  null: false
       t.integer :status,                                  null: false
       t.string :fee,                                     null: true

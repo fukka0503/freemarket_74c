@@ -65,20 +65,12 @@
           .picture {
             margin: 2px;
           }
-          .js-btn {
-            display: flex;
           
-            .js-edit {
-              cursor: pointer;
-              font-weight: 100;
-              padding-left: 18px;
-            }
-            .js-remove {
-              cursor: pointer;
-              font-weight: 100;
-              padding-left: 20px;
-            }
-          }  
+          .js-remove {
+            cursor: pointer;
+            font-weight: 100;
+            padding-left: 45px;
+          }
         }  
         .image {
           height: 150px;

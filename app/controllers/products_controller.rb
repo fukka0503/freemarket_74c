@@ -21,12 +21,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # @images = Image.find(@product.src)
-    # @images.save
     @brands = Brand.new(brand_params)
     @brands.save
     @product = Product.new(product_create_params)
-    binding.pry
+    # binding.pry
     if @product.save
       redirect_to root_path
     else
@@ -70,7 +68,7 @@ class ProductsController < ApplicationController
 
   private
   def product_create_params
-    params.require(:product).permit(:name,:descripitons,:size,:category_id,:quality,:area,:fee,:delivery_time,:price,images_attributes: [:picture]).merge(user_id:current_user.id,brand_id:@brands.id,status:0)
+    params.require(:product).permit(:name,:descriptions,:size,:category_id,:quality,:area,:fee,:delivery_time,:price,images_attributes: [:picture]).merge(user_id:current_user.id,brand_id:@brands.id,status:0)
   end
 
   def brand_params

@@ -10,7 +10,7 @@
           .product-list
             = link_to product_path(product.id) do
               - product.images.each do |image|
-                = image_tag image.picture, height: '150px', width: '220px'
+                = image_tag image.picture.url, height: '150px', width: '220px'
                 .product-list-body
                   %h3.name
                     = product.name
