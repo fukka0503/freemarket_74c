@@ -1,31 +1,30 @@
-= form_with(model: @product, local: true) do |f|
-  .body
-    .products
-      %ul.products__images
-        %li.text
-          .title
-            出品画像
-          .icon
+.body
+  .products
+    %ul.products__images
+      %li.text
+        .title
+          出品画像
+        .icon
+          必須
+      %li.products__images--text 
+        最大10枚までアップロードできます
+      %li.image
+        = image_tag("icon_camera.png")
+    %ul.title
+      %li.products__name
+        %ul.text 
+          %li.title
+            商品名
+          %li.icon
             必須
-        %li.products__images--text 
-          最大10枚までアップロードできます
-        %li.image
-          = image_tag("icon_camera.png")
-      %ul.title
-        %li.products__name
-          %ul.text 
-            %li.title
-              商品名
-            %li.icon
-              必須
-          .name   
-            = f.text_field :name, class: "put-up", placeholder: '40文字まで'        
-        %li.products__descriptions
-          %ul.text 
-            %li.title
-              商品の説明
-            %li.icon
-              必須
+        .name   
+          40文字まで         
+      %li.products__descriptions
+        %ul.text 
+          %li.title
+            商品の説明
+          %li.icon
+            必須
 
           .text-box
             = f.text_area :descripitons, class: "explanation", placeholder: '商品の説明（必須 1000文字以内） （色、素材、重さ、定価、注意点など）'  
