@@ -17,12 +17,12 @@ class ProductsController < ApplicationController
     @product = Product.new
     @parents = Category.where(ancestry: nil)
     @brands = Brand.new
+    @product.images.build
   end
 
   def create
-    @brands = Brand.new(brand_params)
-    @brands.save
     @product = Product.new(product_create_params)
+    @product.brand_id = related_brand_id
     if @product.save
       redirect_to root_path
     else
@@ -41,6 +41,15 @@ class ProductsController < ApplicationController
     @category_parent = Category.where(ancestry: parent_category.ancestry)
     grandchild_category = @product.category
     @category_grandchildren = Category.where(ancestry: grandchild_category.ancestry)
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_create_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -66,11 +75,21 @@ class ProductsController < ApplicationController
 
   private
   def product_create_params
-    params.require(:product).permit(:name,:descripitons,:size,:category_id,:quality,:area,:fee,:delivery_time,:price).merge(user_id:current_user.id,brand_id:@brands.id,status:0)
+    params.require(:product).permit(:name,:descriptions,:size,:category_id,:quality,:area,:fee,:delivery_time,:price,images_attributes: [:picture, :id, :_destroy]).merge(user_id: current_user.id,status:0)
   end
 
   def brand_params
     params.require(:brand).permit(:name)
+  end
+
+  def related_brand_id
+    brand = Brand.find_by(name: params[:brand][:name])
+    if brand.present?
+      return brand.id
+    else
+      brand = Brand.create(brand_params)
+      return brand.id
+    end
   end
 
 end

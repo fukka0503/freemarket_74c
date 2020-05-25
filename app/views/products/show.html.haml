@@ -13,11 +13,11 @@
           .item-box__body
             %ul
               %li
-                = image_tag(@product.images[0].picture, width: '560', height: '346')
+                = image_tag @product.images[0].picture.url, width: '560', height: '346'
                 %ul.boxes
                   - @product.images.each do |image|
                     %li.box
-                      = image_tag image.picture, width: '140', height: '87'
+                      = image_tag image.picture.url, width: '140', height: '87'
           .item-box__price
             %span.price 
               = @product.price
@@ -25,7 +25,7 @@
             .item-box__price-detail
               %span (税込)
           .item-detail
-            = @product.descripitons
+            = @product.descriptions
           .table
             %table
               %tbody
