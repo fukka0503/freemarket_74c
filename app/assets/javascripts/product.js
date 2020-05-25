@@ -83,11 +83,10 @@ $(document).on('change', '#children_box', function() {
 });
 $(document).on('change', '#grandchildren_box', function() {
   let grandchildId = $('#grandchildren_category option:selected').data('category');
+  $('.size_box').val('');
   if (grandchildId != "") {
-    $('.size_box').val('');
     $('#size_box').css('display', 'block');
   } else {
-    $('.size_box').val('');
     $('#size_box').css('display', 'none');
   }
 });
@@ -141,7 +140,6 @@ $(document).on('change', '#grandchildren_box', function() {
   $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index')
     const hiddenCheck = $(`#product_images_attributes_${targetIndex}__destroy`);
-    console.log(hiddenCheck)
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     
     $(this).parent().remove();
