@@ -139,7 +139,7 @@
 .edit-box
   -if user_signed_in? && current_user.id == @product.user_id
     .purchase
-      = link_to "/"  do
+      = link_to edit_product_path  do
         .purchase-btn
           %span.purchase-btn-text
             出品ページの編集
