@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :products,      only: [:show, :new, :create, :edit, :destroy] do
+  resources :products,      only: [:show, :new, :create, :edit, :update, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

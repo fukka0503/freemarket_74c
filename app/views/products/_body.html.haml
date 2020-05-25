@@ -11,12 +11,9 @@
           最大5枚までアップロードできます
         .preview-box
           #previews
-          %label.image 
+          %label.image{for: "product_images_attributes_#{@product.images.count}_picture"}
             = image_tag("icon_camera.png")
             #image-box
-              - if @product.persisted?
-                - @product.images.each_with_index do |image, i|
-                  = image_tag image.picture.url, data: { index: i }, width: "122", height: '146'
               = f.fields_for :images do |image|
                 .js-file_box{"data-index":"#{image.index}"} 
                   = image.file_field :picture, class: 'js-file' 
