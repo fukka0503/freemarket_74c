@@ -56,18 +56,41 @@
         font-size: 14px;
         font-weight: normal;
       }
-      .image {
-        height: 150px;
-        width: 620px;
-        border: 1px dashed rgb(205, 205, 205);
-        background-color: rgb(240, 240, 240);
-        margin-top: 15px;
-        text-align: center;
-        line-height: 150px;
-        cursor: pointer;
-        img {
-          height: 20px;
-          width: 20px;
+      .preview-box {
+        display: flex;
+        #previews {
+          display: flex;
+          height: 150px;
+          margin-top: 15px;
+          .picture {
+            margin: 2px;
+            .js-remove {
+              cursor: pointer;
+              font-weight: 100;
+            } 
+          }
+        }
+        .image {
+          height: 150px;
+          width: 620px;
+          border: 1px dashed rgb(205, 205, 205);
+          background-color: rgb(240, 240, 240);
+          margin-top: 15px;
+          cursor: pointer;
+          flex-grow: 1;
+            img{
+              width: 20px;
+              height: 20px;
+              margin: 65px auto 0;
+              display: block;
+            }
+          #image-box {
+            .js-file_box {
+              .js-file {
+                display: none;
+              }
+            }
+          }    
         }
       }
     }
@@ -375,10 +398,11 @@
 .foot {
   width: 100%;
   height: 220px;
+  background-color: #f8f8f8;
   ul {
     font-size: 13px;
     display: flex;
-    margin: 40px 320px 0 440px;
+    padding: 40px 320px 0 440px;
     cursor: pointer;
     li {
       margin-right: 100px;

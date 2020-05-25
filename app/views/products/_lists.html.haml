@@ -10,25 +10,7 @@
           -# statusが0の時、"商品出品中"とする。
           .product-list
             = link_to product_path(product.id) do
-              - product.images.each do |image|
-                = image_tag image.picture, height: '150px', width: '220px'
-                .product-list-body
-                  %h3.name
-                    = product.name
-                    .details
-                      %ul
-                        %li
-                          = product.price
-                          円
-                        %li
-                          =fa_icon 'star', class: 'likeicon'
-                          0
-                      %p.tax (税込)
-        -else
-          .product-list
-            %p.soldout SOLD OUT
-            - product.images.each do |image|
-              = image_tag image.picture, height: '150px', width: '220px'
+              = image_tag product.images.first.picture.url, height: '150px', width: '220px'
               .product-list-body
                 %h3.name
                   = product.name
@@ -40,4 +22,21 @@
                       %li
                         =fa_icon 'star', class: 'likeicon'
                         0
-                    %p.tax (税込)
+                      %p.tax (税込)
+        -else
+          .product-list
+            %p.soldout 
+              SOLD OUT
+            = image_tag product.images.first.picture, height: '150px', width: '220px'
+            .product-list-body
+              %h3.name
+                = product.name
+                .details
+                  %ul
+                    %li
+                      = product.price
+                      円
+                    %li
+                      =fa_icon 'star', class: 'likeicon'
+                      0
+                  %p.tax (税込)
