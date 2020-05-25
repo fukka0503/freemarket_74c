@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root "products#index"
   resources :products,      only: [:new, :show] do
     resources :purchases,     only: [:index] do
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-  resources :signup,        only: [:index]
+  resources :purchases,     only: [:index]
   resources :mypage,        only: [:index, :new, :show]
   resources :users,         only: [:index]
   resources :card,          only: [:new, :show, :destroy] do
