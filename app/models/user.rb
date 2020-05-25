@@ -8,8 +8,9 @@ class User < ApplicationRecord
   has_many :parchases
   has_many :exhibitions
   has_many :delivery_addresses
-  has_one  :card, dependent: :destroy
   has_many :products, dependent: :destroy
+  has_one  :card, dependent: :destroy
+  has_one  :delivery_addresses
 
 
   validates :nickname, presence: true, length: { maximum: 6 }

@@ -30,4 +30,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
+  resources :delivery_addresses,   only: [:new]
 end
