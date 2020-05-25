@@ -7,12 +7,12 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name,                                    null: false
       t.string :descriptions,                            null: false
       t.integer :price,                                  null: false
-      t.integer :status,                                  null: false
-      t.string :fee,                                     null: true
-      t.string :delivery_time,                           null: true
+      t.integer :status,                                 null: false
+      t.string :fee,                                     null: false
+      t.string :delivery_time,                           null: false
       t.string :area,                                    null: false
       t.string :quality,                                 null: false
-      t.string :size,                                    null: true
+      t.string :size,                                    null: false
       t.timestamps
     end
   end

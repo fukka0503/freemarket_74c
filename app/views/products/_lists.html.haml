@@ -7,6 +7,7 @@
     .product-lists
       - @products.each do |product|
         -if product.status == 0
+          -# statusが0の時、"商品出品中"とする。
           .product-list
             = link_to product_path(product.id) do
               = image_tag product.images.first.picture.url, height: '150px', width: '220px'

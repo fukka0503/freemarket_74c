@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_category, only: [:new, :edit, :create, :update, :destroy]
-
+  before_action :move_to_index, except: [:index, :show]
   
   def index
     @product = Product.new
@@ -58,8 +58,6 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
-
-
   def get_category_children
     @category_children = Category.find(params[:parent_name]).children
   end
@@ -82,6 +80,10 @@ class ProductsController < ApplicationController
     params.require(:brand).permit(:name)
   end
 
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   def related_brand_id
     brand = Brand.find_by(name: params[:brand][:name])
     if brand.present?
@@ -91,5 +93,4 @@ class ProductsController < ApplicationController
       return brand.id
     end
   end
-
 end

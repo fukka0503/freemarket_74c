@@ -91,45 +91,45 @@ $(document).on('change', '#grandchildren_box', function() {
     $('#size_box').css('display', 'none');
   }
 });
-
-
-
-
-
-  // 画像用のinputを生成する関数
-  const buildFileField = (num)=> {
-    const html = `<div data-index="${num}" class="js-file_box">
-    <input class="js-file" type="file"
-    name="product[images_attributes][${num}][picture]"
-    id="product_images_attributes_${num}_picture"><br>
-    </div>`;
-    return html;
-  }
-  // プレビュー用のimgタグを生成する関数
-  const buildImg = (index, url)=> {
-    const html = `<div><img class="picture" data-index="${index}" src="${url}" width="122px" height="146px">
-    <div class="js-remove">削除</div></div>`;
-    return html;
-  }
-  
-  // file_fieldのnameに動的なindexをつける為の配列
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
-  // 既に使われているindexを除外
-  lastIndex = $('.js-file_box:last').data('index');
-  fileIndex.splice(0, lastIndex);
   
   
-  $('.hidden-destroy').hide();
   
-  $('#image-box').on('change', '.js-file', function(e) {
-    const targetIndex = $(this).parent().data('index');
-    console.log(targetIndex)
-    // ファイルのブラウザ上でのURLを取得する
-    const file = e.target.files[0];
-    const blobUrl = window.URL.createObjectURL(file);
-    if( $('img.picture').length == 4) {
-      $('.image').css({"display": "none"})
+  
+  
+    // 画像用のinputを生成する関数
+    const buildFileField = (num)=> {
+      const html = `<div data-index="${num}" class="js-file_box">
+      <input class="js-file" type="file"
+      name="product[images_attributes][${num}][picture]"
+      id="product_images_attributes_${num}_picture"><br>
+      </div>`;
+      return html;
     }
+    // プレビュー用のimgタグを生成する関数
+    const buildImg = (index, url)=> {
+      const html = `<div><img class="picture" data-index="${index}" src="${url}" width="122px" height="146px">
+      <div class="js-remove">削除</div></div>`;
+      return html;
+    }
+    
+    // file_fieldのnameに動的なindexをつける為の配列
+    let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+    // 既に使われているindexを除外
+    lastIndex = $('.js-file_box:last').data('index');
+    fileIndex.splice(0, lastIndex);
+    
+    
+    $('.hidden-destroy').hide();
+    
+    $('#image-box').on('change', '.js-file', function(e) {
+      const targetIndex = $(this).parent().data('index');
+      console.log(targetIndex)
+      // ファイルのブラウザ上でのURLを取得する
+      const file = e.target.files[0];
+      const blobUrl = window.URL.createObjectURL(file);
+      if( $('img.picture').length == 4) {
+        $('.image').css({"display": "none"})
+      }
 
     // 該当indexを持つimgがあれば取得して変数imgに入れる(画像変更の処理)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
@@ -145,7 +145,7 @@ $(document).on('change', '#grandchildren_box', function() {
     }
     $(".image").prop("for", `product_images_attributes_${targetIndex +1}_picture`)
   });
-  
+
   $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index')
     // 該当indexを振られているチェックボックスを取得する
