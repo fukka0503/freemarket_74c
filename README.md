@@ -41,14 +41,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|descriptions|text|null: false|
+|descriptions|string|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
-|status|string|null: false|
+|status|integer|null: false|
 |area|string|null: false|
 |fee|string|null: false|
-|delivery_time|date|null: false|
+|delivery_time|string|null: false|
 |price|string|null: false|
+|quality|string|null: false|
 |user_id|references|null: false, foreign_key:true|
 ### Association
 - has_many : images
