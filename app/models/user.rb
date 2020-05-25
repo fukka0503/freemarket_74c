@@ -7,8 +7,8 @@ class User < ApplicationRecord
 
   has_many :parchases
   has_many :exhibitions
-  has_many :delivery_addresses
   has_one  :card, dependent: :destroy
+  has_one  :delivery_address
   has_many :products, dependent: :destroy
 
 
