@@ -18,7 +18,6 @@
 - has_many : delivery_addresses
 - has_many : cards
 - has_many : products
-- has_many : dealings
 
 ## delivery_addressesテーブル
 |Column|Type|Options|
@@ -34,7 +33,6 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many : parchases
-- has_many : dealings
 - belongs_to : user
 
 ## productsテーブル
@@ -58,19 +56,6 @@
 - belongs_to : user
 - has_many : parchases
 - has_many : exhibitions
-- belongs_to : dealing
-
-## dealingsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
-|products_id|references|null: false, foreign_key: true|
-|delivery_address_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to : user
-- belongs_to : delivery_address
-- belings_to : product
 
 
 ## cardsテーブル
