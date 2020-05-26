@@ -1,0 +1,68 @@
+.management-main
+  .main-box
+    .main-box-item
+      .main-title
+        住所情報登録
+  .main-form
+    .main-form-top
+      = form_for @delivery_address, url: addresses_path, local: true do |f|
+        = render "devise/shared/error_messages", resource: @delivery_address
+        .field
+          .field-label
+            = f.label :送り先のお名前（全角）
+          .field-required
+            = f.label :必須
+        .field-input-name
+          = f.text_field :delivery_family_name, class: 'field-input-family', autofocus: true, placeholder: '例)山田'
+          = f.text_field :delivery_first_name, class: 'field-input-first', autofocus: true, placeholder: '例)太郎'
+        .field
+          .field-label
+            = f.label :送り先のお名前カナ（全角）
+          .field-required
+            = f.label :必須
+        .field-input-name
+          = f.text_field :delivery_family_furigana, class: 'field-input-family', autofocus: true, placeholder: '例)ヤマダ'
+          = f.text_field :delivery_first_furigana, class: 'field-input-first', autofocus: true, placeholder: '例)タロウ'
+        .field
+          .field-label
+            = f.label :郵便番号
+          .field-required
+            = f.label :必須
+        .field-input
+          = f.text_field :postal_code, class: 'field-input-text', autocomplete: true, placeholder: '例)5450011'
+        .field
+          .field-label
+            = f.label :都道府県
+          .field-required
+            = f.label :必須
+        .field-input
+          = f.collection_select :prefecture, Prefecture.all, :name, :name, {include_blank: "選択してください"}, {class: "field-input-text"}
+        .field
+          .field-label
+            = f.label :市区町村
+          .field-required
+            = f.label :必須
+        .field-input
+          = f.text_field :city, class: 'field-input-text', placeholder: '例)大阪市阿倍野区'
+        .field
+          .field-label
+            = f.label :番地
+          .field-required
+            = f.label :必須
+        .field-input
+          = f.text_field :street_number, class: 'field-input-text', placeholder: '例)1-11-30'
+        .field
+          .field-label
+            = f.label :アパート・ビル名など
+        .field-input
+          = f.text_field :address_detail, class: 'field-input-text', placeholder: '例)燦燦ビル3階201号'
+        .field
+          .field-label
+            = f.label :電話番号
+          .field-required
+            = f.label :必須
+        .field-input
+          = f.text_field :phone_number, class: 'field-input-text', placeholder: '例)09054543312'
+
+        .actions
+          = f.submit "登録", class: "btn"

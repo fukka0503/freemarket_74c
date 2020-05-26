@@ -22,8 +22,10 @@
 ## delivery_addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|delivery_name|string|null: false|
-|delivery_furigana|string|null: false|
+|delivery_family_name|string|null: false|
+|delivery_first_name|string|null: false|
+|delivery_family_furigana|string|null: false|
+|delivery_first_furigana|string|null: false|
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|

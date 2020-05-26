@@ -31,8 +31,19 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      delivery_address:  
+        delivery_family_name: 送付先の苗字
+        delivery_first_name: 送付先の氏名
+        delivery_family_furigana: 送付先の苗字カナ
+        delivery_first_furigana: 送付先の氏名カナ
+        postal_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        street_number: 番地
+        address_detail: 住所の詳細
+        phone_number: 電話番号
     models:
-      user: ユーザ
+      user: ユーザー
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
