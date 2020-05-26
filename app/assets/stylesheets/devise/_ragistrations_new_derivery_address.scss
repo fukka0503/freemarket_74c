@@ -1,0 +1,167 @@
+*{
+  box-sizing: border-box;
+}
+
+
+.wrap {
+  background-color: $dark_white;
+  .management-header {
+    height: 128px;
+    width: 100%;
+    .management-header-title {
+      width: 200px;
+      height: 60px;
+      margin: 0 auto;
+      padding-top: 30px;
+    }
+  }
+  .management-main {
+    width: 700px;
+    padding-bottom: 100px;
+    margin: 0 auto;
+    background-color: $white;
+    .main-box {
+      width: 700px;
+      height: 96px;
+      border-bottom: 3px solid $dark_white;
+      &-item {
+        height: 30px;
+        width: 600px;
+        margin: auto;
+        .main-title {
+          width: 150px;
+          font-size: 25px;
+          margin: auto;
+          padding-top: 30px;
+        }
+      }
+    }
+    .main-form {
+      .field {
+        width: 343px;
+        height: 30px;
+        margin: 0 auto;
+        margin-top: 40px;
+        display: flex;
+        &-required { 
+          margin-left: 10px;
+          width: 32px;
+          height: 16px;
+          background-color: $light_blue;
+          color: $white;
+          line-height: 16px;
+          margin-top: 3px;
+          border-radius: 4%;
+          font-size: 13px;
+          padding-left: 3px;
+          padding-top: 1px;
+        }
+      }
+      .field-input {
+        width: 343px;
+        height: 48px;
+        margin: auto;
+        .field-input-text {
+          width: 343px;
+          height: 48px;
+          border: 1px solid $light_blue;
+          border-radius: 2%;
+        }
+      }
+      .form-info-text {
+        width: 350px;
+        height: 150px;
+        margin: 0 auto;
+        .note {
+          color: gray;
+          margin-top: 10px;
+        }
+        .Identification {
+          margin-top: 30px;
+        }
+        .Heads-up {
+          margin-top: 5px;
+          color: $black;
+        }
+      }
+      .field-input-name {
+        width: 343px;
+        height: 50px;
+        margin: auto;
+        display: flex;
+        .field-input-family {
+          width: 165px;
+          height: 48px;
+          border: 1px solid $light_blue;
+          border-radius: 2%;
+        }
+        .field-input-first {
+          width: 165px;
+          height: 48px;
+          border: 1px solid $light_blue;
+          border-radius: 2%;
+          margin-left: 5px;
+        }
+      }
+      .explain {
+        display: flex;
+        margin-top: 40px;
+        .field-btd {
+          margin-left: 180px;
+        }
+        .field-absolutely {
+          width: 32px;
+          height: 16px;
+          background-color: $light_blue;
+          color: $white;
+          line-height: 16px;
+          margin-top: 3px;
+          border-radius: 4%;
+          font-size: 13px;
+          padding-left: 3px;
+          padding-top: 1px;
+
+        }
+        .field-write {
+          margin-left: 20px;
+        }
+      }
+      .actions {
+        width: 343px;
+        height: 50px;
+        margin: auto;
+        margin-top: 40px;
+        .btn {
+          width: 343px;
+          height: 50px;
+          color: $white;
+          background-color: $light_blue;
+        }
+      }
+    }
+  }
+  .signup__footer {
+    background-color: $dark_white;
+    &__details {
+      width: 460px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px 0;
+      .menu {
+        display: flex;
+        justify-content: space-around;
+        a {
+            font-size: 12px;
+            color: $black;
+            text-decoration: none;
+        }
+      }
+      .footer__icon {
+        margin: 20px auto 0
+      }
+      .inc {
+        font-size: 13px;
+      }
+    }
+  }
+}

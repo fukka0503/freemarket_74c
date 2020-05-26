@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-    
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -20,6 +19,34 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @delivery_address = @user.build_delivery_address
     render :new_delivery_address
   end
+
+  def create_delivery_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @delivery_address = DeliveryAddress.new(delivery_address_params)
+    unless @delivery_address.valid?
+      flash.now[:alert] = @delivery_address.errors.full_messages
+      render :new_delivery_address and return
+    end
+    @user.build_delivery_address(@delivery_address.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+    redirect_to root_path
+  end
+
+  protected
+
+  def delivery_address_params
+    params.require(:delivery_address).permit(:delivery_family_name,:delivery_first_name,:delivery_family_furigana,:delivery_first_furigana,:postal_code,:prefecture,:city,:street_number,:address_detail,:phone_number)
+  end
+#   def create
+#     if @delivery_address.save
+#       redirect_to root_path
+#     else
+#       redirect_to new_delivery_address_path
+#     end
+#   end
+
 
 
   # GET /resource/sign_up
@@ -78,3 +105,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 end
+
+
+
+#   def create
+#     if @delivery_address.save
+#       redirect_to root_path
+#     else
+#       redirect_to new_delivery_address_path
+#     end
+#   end
+
