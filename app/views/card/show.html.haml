@@ -1,0 +1,77 @@
+= render "products/header"
+.center
+  .center-side
+    .center-side-nav
+      %ul.center-side-nav-list
+        = link_to "/" do
+          %li マイページ
+        = link_to "/" do
+          %li お知らせ
+        = link_to "/" do
+          %li やることリスト
+        = link_to "/" do
+          %li いいね!一覧
+        = link_to "/" do
+          %li 出品する
+        = link_to "/" do
+          %li 下書き一覧
+        = link_to "/" do
+          %li 出品した商品-出品中
+        = link_to "/" do
+          %li 出品した商品-取引中
+        = link_to "/" do
+          %li 出品した商品-売却済み
+        = link_to "/" do
+          %li 購入した商品-取引中
+        = link_to "/" do
+          %li 購入した商品-過去の取引
+        = link_to "/" do
+          %li ニュース一覧
+        = link_to "/" do
+          %li 評価一覧
+        = link_to "/" do
+          %li ガイド
+        = link_to "/" do
+          %li お問い合わせ
+
+        %p メルペイ
+        = link_to "/" do
+          %li 売上・振込申請
+        = link_to "/" do
+          %li ポイント
+
+        %p 設定
+        = link_to "/" do
+          %li プロフィール
+        = link_to "/" do
+          %li 発送元・お届け先住所変更
+        = link_to new_card_path do
+          %li 支払い方法
+        = link_to "/" do
+          %li メール/パスワード
+        = link_to "/" do
+          %li 本人情報
+        = link_to "/" do
+          %li 電話番号の確認
+        = link_to "/" do
+          %li ログアウト
+
+  .center-main
+    .credit
+      .credit-header
+        %p クレジットカード情報
+      .credit-pay
+        .credit-pay-box
+          %label.text 登録クレジットカード情報
+          %br.content
+          = "**** **** **** " + @default_card_information.last4
+          %br.content
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
+          = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button.delete 削除する
+
+= render "products/content"
+= render "products/footer"

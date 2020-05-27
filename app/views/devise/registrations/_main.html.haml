@@ -5,7 +5,7 @@
         会員情報入力
   .main-form
     .main-form-top
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = form_for(resource, as: resource_name) do |f|
         = devise_error_messages!
         .field
           .field-label
@@ -65,4 +65,4 @@
         .field-input
           = f.text_field :birthday, class: 'field-input-text', autocomplete: true, placeholder: '例)19950625'
         .actions
-          = f.submit "登録", class: "btn"
+          = f.submit "次へ", class: "btn"

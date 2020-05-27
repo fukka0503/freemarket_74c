@@ -1,0 +1,29 @@
+.top
+  .top__inner
+    .top__inner--text
+      購入が完了しました。
+
+.second
+  .second__box
+    .second__box--img
+      = image_tag "#{@product.images.first.picture}", size:"250x200"
+    .second__box--explain
+      .explain-text
+        = @product.name
+      .explain-box
+        .explain-box-title
+          送料込み
+        .explain-box-money
+          = "￥#{@product.price.to_s}"
+  .second-remainder
+  .payment
+    .payment-money
+      .pay-title
+        支払い金額
+      .pay-number
+        = "￥#{@product.price.to_s}"
+  .second-remainder2
+
+.back-toppage-btn
+  = link_to root_path do
+    トップページに戻る
