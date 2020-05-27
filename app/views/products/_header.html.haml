@@ -42,7 +42,7 @@
           %li.lists-right-login
             = link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn'
           %li.lists-right-new
-            = link_to 'マイページ', mypage_index_path
+            = link_to 'マイページ', mypages_path
         - else
           %li.lists-right-login
             = link_to 'ログイン', new_user_session_path 
