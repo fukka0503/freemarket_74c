@@ -3,7 +3,7 @@
   .center-side
     .center-side-nav
       %ul.center-side-nav-list
-        = link_to mypage_index_path do
+        = link_to mypages_path do
           %li マイページ
         = link_to "/" do
           %li お知らせ
@@ -45,7 +45,7 @@
           %li プロフィール
         = link_to "/" do
           %li 発送元・お届け先住所変更
-        = link_to new_mypage_path do
+        = link_to new_card_path do
           %li 支払い方法
         = link_to "/" do
           %li メール/パスワード
@@ -53,7 +53,7 @@
           %li 本人情報
         = link_to "/" do
           %li 電話番号の確認
-        = link_to "mypage/show" do
+        = link_to mypage_path do
           %li ログアウト
 
   .center-main

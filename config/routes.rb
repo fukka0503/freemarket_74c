@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     end
   end
   resources :purchases,     only: [:index]
-  resources :mypage,        only: [:index, :new, :show]
+  resources :mypages,        only: [:index, :show]
   resources :users,         only: [:index]
   resources :card,          only: [:new, :show, :destroy] do
     collection do
