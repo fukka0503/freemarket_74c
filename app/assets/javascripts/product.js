@@ -139,6 +139,8 @@ $(document).on('change', '#grandchildren_box', function() {
 
   $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index')
+    var index = $(this).prev().data('index')
+    $(`.js-file_box[data-index="${index}"]`).remove()
     const hiddenCheck = $(`#product_images_attributes_${targetIndex}__destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     
