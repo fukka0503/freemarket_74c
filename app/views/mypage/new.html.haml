@@ -3,7 +3,7 @@
   .center-side
     .center-side-nav
       %ul.center-side-nav-list
-        = link_to "/" do
+        = link_to mypage_index_path do
           %li マイページ
         = link_to "/" do
           %li お知らせ
@@ -53,7 +53,7 @@
           %li 本人情報
         = link_to "/" do
           %li 電話番号の確認
-        = link_to "/" do
+        = link_to "mypage/show" do
           %li ログアウト
 
   .center-main
