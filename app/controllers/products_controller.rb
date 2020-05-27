@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @product.brand_id = related_brand_id
     if @product.update(product_create_params)
       redirect_to root_path
     else

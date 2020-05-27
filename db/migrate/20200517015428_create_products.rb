@@ -12,7 +12,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :delivery_time,                           null: false
       t.string :area,                                    null: false
       t.string :quality,                                 null: false
-      t.string :size,                                    null: false
+      t.string :size,                                    null: true
       t.timestamps
     end
   end

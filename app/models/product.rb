@@ -10,7 +10,7 @@ class Product < ApplicationRecord
 
   validates :name, presence: true,length: { maximum: 50}
   validates :descriptions, presence: true, length: { maximum: 1000}
-  validates :size, presence: true
+  # validates :size, presence: true
   validates :price, presence: true, inclusion: 300..9999999
   validates :fee, presence: true
   validates :delivery_time, presence: true

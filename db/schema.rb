@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_204129) do
     t.string "delivery_time", null: false
     t.string "area", null: false
     t.string "quality", null: false
-    t.string "size", null: false
+    t.string "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
